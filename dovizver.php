@@ -46,7 +46,7 @@ function dovizkuruver($tarih) {
         $stmt->close();
         $b=0; // sayaç
         $kurubulamadim=true;
-        do {
+        do {  // bulamazsak bir gün geriye bakacağız. do while döngüsü bunun için
             $yil=substr($bakilantarih, 0,4);
             $ay=substr($bakilantarih, 5,2);
             $gun=substr($bakilantarih, 8,2);
@@ -62,7 +62,7 @@ function dovizkuruver($tarih) {
             }
             $b++;
             if ($b==12) { $kurubulamadim=false;} // 12 gün geriye gidip bulamadıysan hata vardır , döngüden çık.
-        } while ($kurubulamadim);
+        } while ($kurubulamadim);  // kurubulamadım false olunca yani kur bulununca döngüden çık
         
         if ($kurvarmi!=0 && strtotime($tarih)>strtotime('2005-01-04')) { // eğer kur bulunduysa ve ytl sonrasıysa ve ileri tarih değilse xml'i vt'ye kaydet
             $serilenmis=serialize($xmldizini);
