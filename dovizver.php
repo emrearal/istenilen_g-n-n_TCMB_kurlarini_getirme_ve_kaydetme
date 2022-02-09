@@ -87,4 +87,10 @@ function dovizkuruver($tarih) {
     }
     return $doviz; // eğer tüm dövizleri göndermek istersen $doviz yerine $xmldizini'ni döndür
 }// fonk sonu
+
+//ÖRNEK KULLANIM
+$tarih='2022-01-15'  // 15 ocak 2022 döviz kurlarını çekiyoruz
+$dovizler=array();
+$dovizler=@dovizkuruver($tarih); 
+echo ($dovizler['eur']['alis']);  // 15 ocak tarihli TCMB euro alış kurunu yazdır. 
 ?>
