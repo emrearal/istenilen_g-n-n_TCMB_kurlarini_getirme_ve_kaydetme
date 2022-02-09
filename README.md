@@ -1,4 +1,4 @@
-# istenilen_g-n-n_TCMB_kurlarini_getirme_ve_kaydetme
+# istenilen_gunun_TCMB_kurlarini_getirme_ve_kaydetme
 İstenilen günün ( geçmiş veya günlük) TCMB( merkez bankası gösterge ) kurlarının getirilmesi ve saklanması.
 PHP de yazılmıştır. Web sitenize entegre edip fatura veya muhasebe işlemleri için kur temin edebilirsiniz.
 Kendi gereksinimleriniz göre gerekli değişiklikleri yapabilirsiniz.
