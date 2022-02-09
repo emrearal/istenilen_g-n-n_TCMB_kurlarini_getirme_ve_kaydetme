@@ -3,7 +3,7 @@
 PHP de yazılmıştır. Web sitenize entegre edip fatura veya muhasebe işlemleri için kur temin edebilirsiniz.<br>
 Kendi gereksinimleriniz göre gerekli değişiklikleri yapabilirsiniz.<br><br>
 
-<u>Tcmb  döviz kuru arama ve kaydetme fonksiyonu/metodu:</u>
+<h4>Tcmb  döviz kuru arama ve kaydetme fonksiyonu/metodu:</h4> <br>
 Her zaman bir gün öncesinin kuru aranır. (Çünkü bugün fatura kesecekseniz dünkü TCMB kurunu kullanırsınız.<br>
 Aynı şekilde size gelmiş fatura 15 Ocak tarihli ise üzerindeki kur 14 Ocak kurudur.<br>
 Eğer sizin kur arama sebebiniz fatura veya muhasebe işlemleri değilse ilgili kodları -satır27- değiştiriniz.)<br>  
