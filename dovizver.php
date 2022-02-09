@@ -7,7 +7,7 @@ Kendi gereksinimleriniz göre gerekli değişiklikleri yapabilirsiniz.
 *Tcmb  döviz kuru arama ve kaydetme fonksiyonu/metodu*
 Her zaman bir gün öncesinin kuru aranır. (Çünkü bugün fatura kesecekseniz dünkü TCMB kurunu kullanırsınız.
 Aynı şekilde size gelmiş fatura 15 Ocak tarihli ise üzerindeki kur 14 Ocak kurudur.
-Eğer sizin kur arama sebebiniz fatura veya muhasebe işlemleri değilse ilgili kodları değiştiriniz.)  
+Eğer sizin kur arama sebebiniz fatura veya muhasebe işlemleri değilse ilgili kodları -satır27-değiştiriniz.)  
 Önce mysql'den aranır.
 Yok ise tcmb'ye bağlanılıp kur aranır ve bulunursa hem cevap gönderilir hem de sql'e kaydedilir ki
 sonraki aramalarda tekrar bağlanmaya gerek kalmasın.
