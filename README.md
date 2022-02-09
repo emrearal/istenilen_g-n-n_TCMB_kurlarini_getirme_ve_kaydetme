@@ -15,11 +15,11 @@ Tcmb  döviz kuru arama ve kaydetme fonksiyonu/metodu:
      İlgili mysql tablosu (vt) şu şekilde oluşturulur:
      create table tcmbxml (tarih date unique, xmlverisi varchar(15000),primary key(tarih)) ;
      ÖNEMLİ
-     Fonksiyonu çağırırken başına @ koyun . Böylece olası XML bağlantı hatası programı durdurmasın.
+     Fonksiyonu çağırırken başına @ koyun . Böylece olası XML bağlantı hatası programı durdurmaz.
      
      KULLANIMI: 
-     $tarih='2022-01-15'  // 15 ocak 2022 dövizlerini çekiyoruz
+     $tarih='2022-01-15'  // 15 ocak 2022 döviz kurlarını çekiyoruz
      $dovizler=array();
      $dovizler=@dovizkuruver($tarih) //  
-     echo ($dovizler['eur']['alis']);  // 15 ocak tarihli TCMB döviz alış kurunu yazdır. 
+     echo ($dovizler['eur']['alis']);  // 15 ocak tarihli TCMB euro alış kurunu yazdır. 
   
