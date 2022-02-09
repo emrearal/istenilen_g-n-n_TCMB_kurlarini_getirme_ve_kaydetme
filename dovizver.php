@@ -75,26 +75,26 @@ function dovizkuruver($tarih) {
         }
         $mysqli->close();
     } // sql'de yoksa else'i sonu
-    //Döviz cinsi ekleyeceksen eskisini silme veya değiştirme .Sadece alta yenisini ekle
-    $doviz['try']['alis'] = "1";
+  // Kullanacağımız dövizler aşağıda. Dilersen yenilerini ekleyebilirsin. XML'den eklenecek dövizin currency sırasını bulman gerek
+    $doviz['try']['alis'] = "1"; // TL nin tl kuru '1' dir.
     $doviz['try']['satis'] = "1";
-    $doviz['try']['usdcapraz'] = $xmldizini['Currency']['0']['BanknoteBuying'];
+    $doviz['try']['usdcapraz'] = $xmldizini['Currency']['0']['BanknoteBuying'];// tl nin dolar çapraz kuru zaten usd/tl kuruna eşittir.
     
     $doviz['usd']['alis'] = $xmldizini['Currency']['0']['BanknoteBuying'];
     $doviz['usd']['satis'] = $xmldizini['Currency']['0']['BanknoteSelling'];
-    $doviz['usd']['usdcapraz'] ="1";
+    $doviz['usd']['usdcapraz'] ="1"; // doların dolar çapraz kuru 1'e eşittir. 
     
     $doviz['eur']['alis'] = $xmldizini['Currency']['3']['BanknoteBuying'];
     $doviz['eur']['satis'] =$xmldizini['Currency']['3']['BanknoteSelling'];
-    $doviz['eur']['usdcapraz'] = $xmldizini['Currency']['3']['CrossRateOther'];
+    $doviz['eur']['usdcapraz'] = $xmldizini['Currency']['3']['CrossRateOther'];// eur/usd 1'den büyük olduğundan CrossRateOther kullanıldı 
     
     $doviz['gbp']['alis'] = $xmldizini['Currency']['4']['BanknoteBuying'];
     $doviz['gbp']['satis'] = $xmldizini['Currency']['4']['BanknoteSelling'];
-    $doviz['gbp']['usdcapraz'] =$xmldizini['Currency']['4']['CrossRateOther'];
+    $doviz['gbp']['usdcapraz'] =$xmldizini['Currency']['4']['CrossRateOther'];// gbp/usd 1'den büyük olduğundan CrossRateOther kullanıldı 
     
     $doviz['sek']['alis'] = $xmldizini['Currency']['6']['BanknoteBuying'];  // sek=İsveç Kronu
     $doviz['sek']['satis'] = $xmldizini['Currency']['6']['BanknoteSelling'];
-    $doviz['sek']['usdcapraz'] =$xmldizini['Currency']['6']['CrossRateUSD'];
+    $doviz['sek']['usdcapraz'] =$xmldizini['Currency']['6']['CrossRateUSD'];// sek/usd 1'den küçük olduğundan CrossRateUSD kullanıldı 
     
     if (floatval($doviz['try']['usdcapraz'])==0 || strtotime($tarih)<strtotime('2005-01-04')) { // eğer kur bulunamadıysa veya ytl öncesi ise hepsi 1;
          foreach ($doviz as &$deger) {
