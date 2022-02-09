@@ -1,5 +1,24 @@
 <?php
-// ÖNCE README.md 'yi OKU
+/* 
+İstenilen günün ( geçmiş veya günlük) TCMB( merkez bankası gösterge ) kurlarının getirilmesi ve saklanması.
+PHP de yazılmıştır. Web sitenize entegre edip fatura veya muhasebe işlemleri için kur temin edebilirsiniz.
+Kendi gereksinimleriniz göre gerekli değişiklikleri yapabilirsiniz.
+
+Tcmb  döviz kuru arama ve kaydetme fonksiyonu/metodu:
+Her zaman bir gün öncesinin kuru aranır. Önce mysql'den aranır.
+Yok ise tcmb'ye bağlanılıp kur aranır ve bulunursa hem cevap gönderilir hem de sql'e kaydedilir ki
+sonraki aramalarda tekrar bağlanmaya gerek kalmasın.
+Kur bulunamazsa bir gün öncesine bakılır.
+12 gün geriye gidildiği halde kur bulunamazsa veya hata varsa veya tarih 2005 öncesi ise kur kullanıcıya "1" olarak iletilir
+ve elle değiştirmesi beklenir. Bu "1" değeri veri tabanına kaydedilmez.
+Bugünden daha ileri tarihler sorgulanırsa  bugünün tarihi sorgulanır.
+İleride başka kurlara bakmak gerekirse diye tcmb'nin xml dosyasının tamamı mysql'e dizin olarak kaydedilir.
+İlgili mysql tablosu (vt) şu şekilde oluşturulur:
+create table tcmbxml (tarih date unique, xmlverisi varchar(15000),primary key(tarih)) ;
+ÖNEMLİ
+fonksiyonu çağırırken başına @ koyun . Böylece olası XML bağlantı hatası programı durdurmaz.
+emre@aral.web.tr 
+*/
 function dovizkuruver($tarih) {
     $tarih= (strtotime($tarih)>time()) ? (date('Y-m-d')) : $tarih; // sorgu ileri tarihli ise bakılacak tarih bugünün tarihidir.
     $kaydedilecektarih=$bakilantarih = date('Y-m-d', strtotime( $tarih . " -1 days")); // hep bir gün öncesine bakacağız
@@ -55,12 +74,11 @@ function dovizkuruver($tarih) {
         }
         $mysqli->close();
     } // vt 'de yoksa else'i sonu
-    
+    //Döviz cinsi ekleyeceksen eskisini silme veya değiştirme .Sadece alta yenisini ekle
     $doviz['try']['alis'] = "1";
     $doviz['try']['satis'] = "1";
     $doviz['try']['usdcapraz'] = $xmldizini['Currency']['0']['BanknoteBuying'];
     
-    //Döviz cinsi ekleyeceksen eskisini silme veya değiştirme .Sadece en alta yenisini ekle
     $doviz['usd']['alis'] = $xmldizini['Currency']['0']['BanknoteBuying'];
     $doviz['usd']['satis'] = $xmldizini['Currency']['0']['BanknoteSelling'];
     $doviz['usd']['usdcapraz'] ="1";
