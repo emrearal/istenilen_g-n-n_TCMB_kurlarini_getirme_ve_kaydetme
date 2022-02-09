@@ -16,6 +16,7 @@ Tcmb  döviz kuru arama ve kaydetme fonksiyonu/metodu:
      create table tcmbxml (tarih date unique, xmlverisi varchar(15000),primary key(tarih)) ;
      ÖNEMLİ
      Fonksiyonu çağırırken başına @ koyun . Böylece olası XML bağlantı hatası programı durdurmaz.
+     emre@aral.web.tr
      
      KULLANIMI: 
      $tarih='2022-01-15'  // 15 ocak 2022 döviz kurlarını çekiyoruz
