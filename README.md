@@ -22,3 +22,4 @@ Tcmb  döviz kuru arama ve kaydetme fonksiyonu/metodu:
      $dovizler=array();
      $dovizler=@dovizkuruver($tarih) //  
      echo ($dovizler['eur']['alis']);  // 15 ocak tarihli TCMB döviz alış kurunu yazdır. 
+  
