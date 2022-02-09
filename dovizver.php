@@ -4,7 +4,7 @@
 PHP de yazılmıştır. Web sitenize entegre edip fatura veya muhasebe işlemleri için kur temin edebilirsiniz.
 Kendi gereksinimleriniz göre gerekli değişiklikleri yapabilirsiniz.
 
-Tcmb  döviz kuru arama ve kaydetme fonksiyonu/metodu:
+*Tcmb  döviz kuru arama ve kaydetme fonksiyonu/metodu*
 Her zaman bir gün öncesinin kuru aranır. Önce mysql'den aranır.
 Yok ise tcmb'ye bağlanılıp kur aranır ve bulunursa hem cevap gönderilir hem de sql'e kaydedilir ki
 sonraki aramalarda tekrar bağlanmaya gerek kalmasın.
