@@ -94,7 +94,7 @@ function dovizkuruver($tarih) {
     $doviz['gbp']['satis'] = $xmldizini['Currency']['4']['BanknoteSelling'];
     $doviz['gbp']['usdcapraz'] =$xmldizini['Currency']['4']['CrossRateOther'];
     
-    $doviz['sek']['alis'] = $xmldizini['Currency']['6']['BanknoteBuying'];
+    $doviz['sek']['alis'] = $xmldizini['Currency']['6']['BanknoteBuying'];  // sek=İsveç Kronu
     $doviz['sek']['satis'] = $xmldizini['Currency']['6']['BanknoteSelling'];
     $doviz['sek']['usdcapraz'] =$xmldizini['Currency']['6']['CrossRateUSD'];
     
