@@ -28,9 +28,7 @@ function dovizkuruver($tarih) {
     // önce veritabanında var mı ona bakacağız
     $mysqli = new mysqli('mysqlurl','mysqlusername' ,'mysqlpassword' ,'mysqldatabase'); // bunları kendi veritabanına göre değiştir
     $mysqli->set_charset("utf8");
-    if($mysqli->connect_error) {
-        exit('Bağlantı hatası');
-    }
+    if($mysqli->connect_error) { exit('Mysql Bağlantı hatası');}
     $doviz = array();
     $xmldizini= array();
     $sql = "SELECT xmlverisi from tcmbxml where tarih='$bakilantarih'" ;
@@ -46,7 +44,7 @@ function dovizkuruver($tarih) {
         $stmt->close();
     } else { // vt de yoksa tcmb ye bağlan ve getir
         $stmt->close();
-        $b=0;
+        $b=0; // sayaç
         $kurubulamadim=true;
         do {
             $yil=substr($bakilantarih, 0,4);
@@ -106,8 +104,8 @@ function dovizkuruver($tarih) {
         }
         unset($altdeger); // never used demesin diye imha ettik;
     }
-    return $doviz; // eğer tüm dövizleri göndermek istersen $doviz yerine $xmldizini'ni döndür
-}// fonk sonu
+   return $doviz; // eğer tüm dövizleri göndermek istersen $doviz yerine $xmldizini'ni döndür
+}// fonksiyon sonu
 
 //ÖRNEK KULLANIM
 $tarih='2022-01-15'  // 15 ocak 2022 döviz kurlarını çekiyoruz
