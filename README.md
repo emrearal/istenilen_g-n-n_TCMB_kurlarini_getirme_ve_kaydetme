@@ -21,7 +21,7 @@ ve elle değiştirmesi beklenir. Bu "1" değeri veri tabanına kaydedilmez.</li>
 create table tcmbxml (tarih date unique, xmlverisi varchar(15000),primary key(tarih)) ;</li>
 <li>ÖNEMLİ: Fonksiyonu çağırırken başına @ koyun . Böylece olası XML bağlantı hatası programı durdurmaz.</li>
 </ul>
-<u>emre@aral.web.tr</u><br>
+<i>emre@aral.web.tr</i><br>
      
      KULLANIMI: 
      $tarih='2022-01-15'  // 15 ocak 2022 döviz kurlarını çekiyoruz
