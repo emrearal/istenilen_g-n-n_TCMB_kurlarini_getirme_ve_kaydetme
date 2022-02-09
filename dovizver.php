@@ -1,4 +1,5 @@
 <?php
+// emre@aral.web.tr
 function dovizkuruver($tarih) {
     $tarih= (strtotime($tarih)>time()) ? (date('Y-m-d')) : $tarih; // sorgu ileri tarihli ise bakılacak tarih bugünün tarihidir.
     $kaydedilecektarih=$bakilantarih = date('Y-m-d', strtotime( $tarih . " -1 days")); // hep bir gün öncesine bakacağız
