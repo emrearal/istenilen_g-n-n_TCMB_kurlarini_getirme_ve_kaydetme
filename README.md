@@ -17,7 +17,7 @@ sonraki aramalarda tekrar bağlanmaya gerek kalmasın.</li>
 ve elle değiştirmesi beklenir. Bu "1" değeri veri tabanına kaydedilmez.</li>
 <li>Bugünden daha ileri tarihler sorgulanırsa  bugünün tarihi sorgulanır.</li>
 <li>İleride başka kurlara bakmak gerekirse diye tcmb'nin xml dosyasının tamamı mysql'e dizin olarak kaydedilir.</li>
-<li>İlgili mysql tablosu (vt) şu şekilde oluşturulur:<br>
+<li>İlgili mysql tablosu şu şekilde oluşturulur:<br>
 create table tcmbxml (tarih date unique, xmlverisi varchar(15000),primary key(tarih)) ;</li>
 <li>ÖNEMLİ: Fonksiyonu çağırırken başına @ koyun . Böylece olası XML bağlantı hatası programı durdurmaz.</li>
 </ul>
