@@ -1,6 +1,7 @@
 # istenilen_gunun_TCMB_kurlarini_getirme_ve_kaydetme
 <h3>İstenilen günün ( geçmiş veya günlük) TCMB( merkez bankası gösterge ) kurlarının getirilmesi ve saklanması.</h3>
-PHP de yazılmıştır. Web sitenize entegre edip fatura veya muhasebe işlemleri için kur temin edebilirsiniz.<br>
+PHP de yazılmıştır.<br> 
+Web sitenize entegre edip fatura veya muhasebe işlemleri için kur temin edebilirsiniz.<br>
 Kendi gereksinimleriniz göre gerekli değişiklikleri yapabilirsiniz.<br><br>
 
 <h4>Tcmb  döviz kuru arama ve kaydetme fonksiyonu/metodu:</h4> <br>
@@ -19,8 +20,8 @@ ve elle değiştirmesi beklenir. Bu "1" değeri veri tabanına kaydedilmez.</li>
 <li>İlgili mysql tablosu (vt) şu şekilde oluşturulur:<br>
 create table tcmbxml (tarih date unique, xmlverisi varchar(15000),primary key(tarih)) ;</li>
 <li>ÖNEMLİ: Fonksiyonu çağırırken başına @ koyun . Böylece olası XML bağlantı hatası programı durdurmaz.</li>
-</ul><br>
-<u>emre@aral.web.tr</u>
+</ul>
+<u>emre@aral.web.tr</u><br>
      
      KULLANIMI: 
      $tarih='2022-01-15'  // 15 ocak 2022 döviz kurlarını çekiyoruz
