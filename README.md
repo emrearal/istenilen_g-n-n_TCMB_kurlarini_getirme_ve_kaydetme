@@ -4,20 +4,22 @@ PHP de yazılmıştır. Web sitenize entegre edip fatura veya muhasebe işlemler
 Kendi gereksinimleriniz göre gerekli değişiklikleri yapabilirsiniz.<br><br>
 
 <h4>Tcmb  döviz kuru arama ve kaydetme fonksiyonu/metodu:</h4> <br>
-Her zaman bir gün öncesinin kuru aranır. (Çünkü bugün fatura kesecekseniz dünkü TCMB kurunu kullanırsınız.<br>
-Aynı şekilde size gelmiş fatura 15 Ocak tarihli ise üzerindeki kur 14 Ocak kurudur.<br>
-Eğer sizin kur arama sebebiniz fatura veya muhasebe işlemleri değilse ilgili kodları -satır27- değiştiriniz.)<br>  
-Önce mysql'den aranır.<br>
-Yok ise tcmb'ye bağlanılıp kur aranır ve bulunursa hem cevap gönderilir hem de sql'e kaydedilir ki
-sonraki aramalarda tekrar bağlanmaya gerek kalmasın.<br>
-Kur bulunamazsa bir gün öncesine bakılır.<br>
-12 gün geriye gidildiği halde kur bulunamazsa veya hata varsa veya tarih 2005 öncesi ise kur kullanıcıya "1" olarak iletilir
-ve elle değiştirmesi beklenir. Bu "1" değeri veri tabanına kaydedilmez.<br>
-Bugünden daha ileri tarihler sorgulanırsa  bugünün tarihi sorgulanır.<br>
-İleride başka kurlara bakmak gerekirse diye tcmb'nin xml dosyasının tamamı mysql'e dizin olarak kaydedilir.<br>
-İlgili mysql tablosu (vt) şu şekilde oluşturulur:<br>
-create table tcmbxml (tarih date unique, xmlverisi varchar(15000),primary key(tarih)) ;<br>
-ÖNEMLİ: Fonksiyonu çağırırken başına @ koyun . Böylece olası XML bağlantı hatası programı durdurmaz.<br>
+<ul>
+<li>Her zaman bir gün öncesinin kuru aranır. (Çünkü bugün fatura kesecekseniz dünkü TCMB kurunu kullanırsınız.</li>
+Aynı şekilde size gelmiş fatura 15 Ocak tarihli ise üzerindeki kur 14 Ocak kurudur.
+Eğer sizin kur arama sebebiniz fatura veya muhasebe işlemleri değilse ilgili kodları -satır27- değiştiriniz.)</li>  
+<li>Önce mysql'den aranır.</li>
+<li>Yok ise tcmb'ye bağlanılıp kur aranır ve bulunursa hem cevap gönderilir hem de sql'e kaydedilir ki
+sonraki aramalarda tekrar bağlanmaya gerek kalmasın.</li>
+<li>Kur bulunamazsa bir gün öncesine bakılır.</li>
+<li>12 gün geriye gidildiği halde kur bulunamazsa veya hata varsa veya tarih 2005 öncesi ise kur kullanıcıya "1" olarak iletilir
+ve elle değiştirmesi beklenir. Bu "1" değeri veri tabanına kaydedilmez.</li>
+<li>Bugünden daha ileri tarihler sorgulanırsa  bugünün tarihi sorgulanır.</li>
+<li>İleride başka kurlara bakmak gerekirse diye tcmb'nin xml dosyasının tamamı mysql'e dizin olarak kaydedilir.</li>
+<li>İlgili mysql tablosu (vt) şu şekilde oluşturulur:<br>
+create table tcmbxml (tarih date unique, xmlverisi varchar(15000),primary key(tarih)) ;</li>
+<li>ÖNEMLİ: Fonksiyonu çağırırken başına @ koyun . Böylece olası XML bağlantı hatası programı durdurmaz.</li>
+</ul><br>
 <u>emre@aral.web.tr</u>
      
      KULLANIMI: 
