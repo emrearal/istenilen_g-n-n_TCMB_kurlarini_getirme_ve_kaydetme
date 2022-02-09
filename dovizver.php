@@ -46,7 +46,7 @@ function dovizkuruver($tarih) {
         $stmt->close();
         $b=0; // sayaç
         $kurubulamadim=true;
-        do {  // bulamazsak bir gün geriye bakacağız. do while döngüsü bunun için
+        do {  // kur yoksa tarih tatile denk gelmiştir.Bu durumda bulana kadar bir gün önceye bakacağız. do while döngüsü bunun için
             $yil=substr($bakilantarih, 0,4);
             $ay=substr($bakilantarih, 5,2);
             $gun=substr($bakilantarih, 8,2);
