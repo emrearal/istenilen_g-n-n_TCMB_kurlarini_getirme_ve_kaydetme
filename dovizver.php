@@ -16,7 +16,7 @@ Kur bulunamazsa bir gün öncesine bakılır.
 ve elle değiştirmesi beklenir. Bu "1" değeri veri tabanına kaydedilmez.
 Bugünden daha ileri tarihler sorgulanırsa  bugünün tarihi sorgulanır.
 İleride başka kurlara bakmak gerekirse diye tcmb'nin xml dosyasının tamamı mysql'e dizin olarak kaydedilir.
-İlgili mysql tablosu (vt) şu şekilde oluşturulur:
+İlgili mysql tablosu şu şekilde oluşturulur:
 create table tcmbxml (tarih date unique, xmlverisi varchar(15000),primary key(tarih)) ;
 ÖNEMLİ
 fonksiyonu çağırırken başına @ koyun . Böylece olası XML bağlantı hatası programı durdurmaz.
@@ -38,11 +38,11 @@ function dovizkuruver($tarih) {
     $stmt->store_result();
     $sonucsayisi=$stmt->num_rows;
     
-    if ($sonucsayisi!=0) {  // vt de varsa getir
+    if ($sonucsayisi!=0) {  // sql de varsa getir
         $stmt->fetch();
         $xmldizini=unserialize($xmlverisi);
         $stmt->close();
-    } else { // vt de yoksa tcmb ye bağlan ve getir
+    } else { // sql'de yoksa tcmb ye bağlan ve getir
         $stmt->close();
         $b=0; // sayaç
         $kurubulamadim=true;
@@ -64,7 +64,7 @@ function dovizkuruver($tarih) {
             if ($b==12) { $kurubulamadim=false;} // 12 gün geriye gidip bulamadıysan hata vardır , döngüden çık.
         } while ($kurubulamadim);  // kurubulamadım false olunca yani kur bulununca döngüden çık
         
-        if ($kurvarmi!=0 && strtotime($tarih)>strtotime('2005-01-04')) { // eğer kur bulunduysa ve ytl sonrasıysa ve ileri tarih değilse xml'i vt'ye kaydet
+        if ($kurvarmi!=0 && strtotime($tarih)>strtotime('2005-01-04')) { // eğer kur bulunduysa ve ytl sonrasıysa xml'i mysql'e kaydet
             $serilenmis=serialize($xmldizini);
             $komut="INSERT INTO tcmbxml (tarih,xmlverisi) VALUES ('$kaydedilecektarih','$serilenmis')";
             
@@ -74,7 +74,7 @@ function dovizkuruver($tarih) {
             }
         }
         $mysqli->close();
-    } // vt 'de yoksa else'i sonu
+    } // sql'de yoksa else'i sonu
     //Döviz cinsi ekleyeceksen eskisini silme veya değiştirme .Sadece alta yenisini ekle
     $doviz['try']['alis'] = "1";
     $doviz['try']['satis'] = "1";
